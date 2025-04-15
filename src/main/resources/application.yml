@@ -1,0 +1,40 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/softproj_cc?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: softuser         # 또는 root
+    password: 1234             # 설정한 비번
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+
+
+  security:
+    user:
+      name: admin
+      password: 1234
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: 2012ssuclear@gmail.com     # 👉 너의 Gmail 주소
+    password: uowwayeavwbmvfav       # 👉 앱 비밀번호 (16자리)
+    protocol: smtp
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+    default-encoding: UTF-8
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
